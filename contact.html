@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us — GamingHub</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/contact_style.css" />
+  </head>
+  <body>
+    <!-- BG -->
+    <div class="bg-layer">
+      <div class="bg-grid"></div>
+      <div class="bg-orb bg-orb-1"></div>
+      <div class="bg-orb bg-orb-2"></div>
+      <div class="bg-orb bg-orb-3"></div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="navbar-inner">
+        <div class="logo">
+            <a href="/index.html">
+                GAMING<span>HUB</span>
+            </a>
+        </div>
+        <a class="nav-back" href="/index.html">
+          <i class="fas fa-arrow-left"></i> Back to Store
+        </a>
+      </div>
+    </nav>
+
+    <!-- MAIN -->
+    <main>
+      <div class="contact-wrapper">
+        <!-- PAGE HEADER -->
+        <div class="page-header">
+          <div class="page-tag">Support Center</div>
+          <h1 class="page-title">Get in <span class="accent">Touch</span></h1>
+          <p class="page-subtitle">
+            We respond within 24 hours. Our team of gaming experts is ready to
+            help.
+          </p>
+        </div>
+
+        <!-- GRID -->
+        <div class="contact-grid">
+          <!-- INFO PANEL -->
+          <div class="info-panel">
+            <div class="info-card" data-color="purple">
+              <div class="info-card-inner">
+                <div class="info-icon purple">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div>
+                  <div class="info-text-label">Email</div>
+                  <div class="info-text-value">support@gamestore.com</div>
+                  <div class="info-text-sub">Response within 24 hours</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-card" data-color="blue">
+              <div class="info-card-inner">
+                <div class="info-icon blue"><i class="fas fa-phone"></i></div>
+                <div>
+                  <div class="info-text-label">Phone</div>
+                  <div class="info-text-value">+1 (800) 426-3787</div>
+                  <div class="info-text-sub">Mon–Fri, 9AM–6PM EST</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-card" data-color="cyan">
+              <div class="info-card-inner">
+                <div class="info-icon cyan">
+                  <i class="fas fa-location-dot"></i>
+                </div>
+                <div>
+                  <div class="info-text-label">Office</div>
+                  <div class="info-text-value">123 Gaming Avenue</div>
+                  <div class="info-text-sub">San Francisco, CA 94105</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-card" data-color="green">
+              <div class="info-card-inner">
+                <div class="info-icon green"><i class="fas fa-circle"></i></div>
+                <div>
+                  <div class="info-text-label">Live Chat</div>
+                  <div class="info-text-value">Available Now</div>
+                  <div class="info-text-sub">Avg. wait: ~2 minutes</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="social-card">
+              <div class="social-card-label">Find us online</div>
+              <div class="social-row">
+                <a class="social-btn twitter" href="#" title="Twitter"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a class="social-btn discord" href="#" title="Discord"
+                  ><i class="fab fa-discord"></i
+                ></a>
+                <a class="social-btn twitch" href="#" title="Twitch"
+                  ><i class="fab fa-twitch"></i
+                ></a>
+                <a class="social-btn youtube" href="#" title="YouTube"
+                  ><i class="fab fa-youtube"></i
+                ></a>
+                <a class="social-btn instagram" href="#" title="Instagram"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <!-- /info-panel -->
+
+          <!-- FORM CARD -->
+          <div class="form-card">
+            <!-- Success State (hidden by default) -->
+            <div class="success-overlay" id="successOverlay">
+              <div class="success-icon">✅</div>
+              <div class="success-title">Message Sent!</div>
+              <p class="success-msg">
+                Thanks for reaching out, gamer.<br />Our team will get back to
+                you within 24 hours.
+              </p>
+              <button class="btn-reset" onclick="resetForm()">
+                Send Another Message
+              </button>
+            </div>
+
+            <!-- Form -->
+            <div id="formContent">
+              <div class="form-card-title">Send a Message</div>
+              <p class="form-card-sub">
+                Fill out the form and we'll get back to you as fast as possible.
+              </p>
+
+              <div class="form-row">
+                <!-- First Name -->
+                <div class="field" id="field-fname">
+                  <label>First Name <span class="req">*</span></label>
+                  <div class="field-icon-wrap">
+                    <input
+                      type="text"
+                      id="fname"
+                      placeholder="Enter Your First Name"
+                      autocomplete="given-name"
+                    />
+                    <i class="fas fa-user"></i>
+                  </div>
+                  <span class="error-msg"
+                    ><i class="fas fa-circle-exclamation"></i> Required
+                    field</span
+                  >
+                </div>
+                <!-- Last Name -->
+                <div class="field" id="field-lname">
+                  <label>Last Name <span class="req">*</span></label>
+                  <div class="field-icon-wrap">
+                    <input
+                      type="text"
+                      id="lname"
+                      placeholder="Enter Your Last Name"
+                      autocomplete="family-name"
+                    />
+                    <i class="fas fa-user"></i>
+                  </div>
+                  <span class="error-msg"
+                    ><i class="fas fa-circle-exclamation"></i> Required
+                    field</span
+                  >
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="field" id="field-email">
+                <label>Email Address <span class="req">*</span></label>
+                <div class="field-icon-wrap">
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="user@example.com"
+                    autocomplete="email"
+                  />
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <span class="error-msg"
+                  ><i class="fas fa-circle-exclamation"></i> Enter a valid email
+                  address</span
+                >
+              </div>
+
+              <!-- Order ID -->
+              <div class="field" id="field-order">
+                <label
+                  >Order ID
+                  <span style="color: var(--text-muted); font-size: 0.55rem"
+                    >(optional)</span
+                  ></label
+                >
+                <div class="field-icon-wrap">
+                  <input type="text" id="order" placeholder="GS-000000" />
+                  <i class="fas fa-hashtag"></i>
+                </div>
+              </div>
+
+              <!-- Topic -->
+              <div class="field" id="field-topic">
+                <label>Topic <span class="req">*</span></label>
+                <select id="topic">
+                  <option value="" disabled selected>Select a topic…</option>
+                  <option value="order">Order Issue</option>
+                  <option value="refund">Refund / Return</option>
+                  <option value="technical">Technical Support</option>
+                  <option value="account">Account Help</option>
+                  <option value="other">Other</option>
+                </select>
+                <span class="error-msg"
+                  ><i class="fas fa-circle-exclamation"></i> Please select a
+                  topic</span
+                >
+              </div>
+
+              <!-- Rating -->
+              <div class="field">
+                <label
+                  >Experience Rating
+                  <span style="color: var(--text-muted); font-size: 0.55rem"
+                    >(optional)</span
+                  ></label
+                >
+                <div class="rating-row" id="ratingRow">
+                  <span class="rating-star" data-val="1">★</span>
+                  <span class="rating-star" data-val="2">★</span>
+                  <span class="rating-star" data-val="3">★</span>
+                  <span class="rating-star" data-val="4">★</span>
+                  <span class="rating-star" data-val="5">★</span>
+                </div>
+              </div>
+
+              <!-- Message -->
+              <div class="field" id="field-message">
+                <label>Message <span class="req">*</span></label>
+                <textarea
+                  id="message"
+                  placeholder="Describe your issue or question in detail…"
+                  maxlength="1000"
+                ></textarea>
+                <div class="field-footer">
+                  <span class="char-count" id="charCount">0 / 1000</span>
+                </div>
+                <span class="error-msg"
+                  ><i class="fas fa-circle-exclamation"></i> Message must be at
+                  least 10 characters</span
+                >
+              </div>
+
+              <!-- Newsletter checkbox -->
+              <div class="checkbox-field">
+                <input type="checkbox" id="newsletter" />
+                <label for="newsletter">
+                  Subscribe to our newsletter for the latest deals, game drops,
+                  and GameStore news.
+                </label>
+              </div>
+
+              <!-- Terms checkbox -->
+              <div class="checkbox-field" style="margin-top: 10px">
+                <input type="checkbox" id="terms" />
+                <label for="terms">
+                  I agree to the <a href="#">Privacy Policy</a> and
+                  <a href="#">Terms of Service</a>.
+                  <span class="req" style="color: var(--neon-pink)">*</span>
+                </label>
+              </div>
+              <span class="error-msg" id="terms-error" style="margin-top: 4px"
+                ><i class="fas fa-circle-exclamation"></i> You must accept the
+                terms to continue</span
+              >
+
+              <!-- Submit -->
+              <div class="submit-row">
+                <button
+                  class="btn-submit"
+                  id="submitBtn"
+                  onclick="handleSubmit()"
+                >
+                  <div class="spinner"></div>
+                  <i class="fas fa-paper-plane btn-icon"></i>
+                  <span>Send Message</span>
+                </button>
+              </div>
+            </div>
+            <!-- /formContent -->
+          </div>
+          <!-- /form-card -->
+        </div>
+        <!-- /contact-grid -->
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-copy">© 2025 GameStore. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Cookies</a>
+      </div>
+    </footer>
+    <script src="/js/contact.js"></script>
+  </body>
+</html>

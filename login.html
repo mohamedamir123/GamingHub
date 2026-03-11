@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login — GamingHub</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/assets/css/login.css" />
+  </head>
+  <body>
+    <div class="bg-layer">
+      <div class="bg-grid"></div>
+      <div class="bg-orb bg-orb-1"></div>
+      <div class="bg-orb bg-orb-2"></div>
+    </div>
+
+    <nav class="navbar">
+      <div class="navbar-inner">
+        <a class="logo" href="/index.html">GAMING<span>HUB</span></a>
+        <a class="nav-back" href="/index.html"
+          ><i class="fas fa-arrow-left"></i> Back to Store</a
+        >
+      </div>
+    </nav>
+
+    <main>
+      <div class="auth-wrapper">
+        <!-- VISUAL SIDE -->
+        <div class="auth-visual">
+          <div class="visual-grid"></div>
+          <div class="visual-glow-1"></div>
+          <div class="visual-glow-2"></div>
+
+          <div class="visual-top">
+            <div class="visual-logo">GAMESTORE</div>
+          </div>
+
+          <div class="visual-mid">
+            <div class="visual-icon">🎮</div>
+            <h2 class="visual-title">
+              Welcome<br />
+              <span class="hl">Back, Gamer</span>
+            </h2>
+            <p class="visual-desc">
+              Log in to access your library, track orders, and unlock exclusive
+              member deals.
+            </p>
+            <div class="perks">
+              <div class="perk">
+                <div class="perk-icon">🏆</div>
+                Access your full game library
+              </div>
+              <div class="perk">
+                <div class="perk-icon">🔔</div>
+                Get notified on wishlist deals
+              </div>
+              <div class="perk">
+                <div class="perk-icon">⚡</div>
+                Faster checkout every time
+              </div>
+              <div class="perk">
+                <div class="perk-icon">🎁</div>
+                Member-only rewards & bundles
+              </div>
+            </div>
+          </div>
+
+          <div class="visual-bottom">
+            <div class="visual-stats">
+              <div>
+                <div class="vstat-num">500K+</div>
+                <div class="vstat-label">Members</div>
+              </div>
+              <div>
+                <div class="vstat-num">10K+</div>
+                <div class="vstat-label">Games</div>
+              </div>
+              <div>
+                <div class="vstat-num">4.9★</div>
+                <div class="vstat-label">Rated</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FORM SIDE -->
+        <div class="auth-form-side">
+          <!-- Success -->
+          <div class="success-overlay" id="successOverlay">
+            <div class="success-icon">✅</div>
+            <div class="success-title">Logged In!</div>
+            <p class="success-msg">
+              Welcome back! Redirecting you<br />to your dashboard…
+            </p>
+            <a class="btn-store" href="/index.html">Go to Store</a>
+          </div>
+
+          <!-- Form -->
+          <div id="formContent">
+            <div class="form-header">
+              <h1 class="form-title">Sign In</h1>
+              <p class="form-subtitle">
+                Don't have an account? <a href="signup.html">Create one →</a>
+              </p>
+            </div>
+
+            <!-- OAuth -->
+            <div class="oauth-row">
+              <button class="oauth-btn">
+                <i class="fab fa-google google-i"></i> Google
+              </button>
+              <button class="oauth-btn">
+                <i class="fab fa-steam steam-i"></i> Steam
+              </button>
+            </div>
+            <div class="divider">or sign in with email</div>
+
+            <!-- Email -->
+            <div class="field" id="field-email">
+              <label>Email Address</label>
+              <div class="field-icon-wrap">
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="user@example.com"
+                  autocomplete="email"
+                />
+                <i class="fas fa-envelope f-icon"></i>
+              </div>
+              <span class="error-msg"
+                ><i class="fas fa-circle-exclamation"></i> Enter a valid
+                email</span
+              >
+            </div>
+
+            <!-- Password -->
+            <div class="field" id="field-password">
+              <label>Password <a href="#">Forgot password?</a></label>
+              <div class="field-icon-wrap">
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="••••••••"
+                  autocomplete="current-password"
+                />
+                <i class="fas fa-lock f-icon"></i>
+                <button
+                  class="toggle-pw"
+                  type="button"
+                  onclick="togglePw('password', this)"
+                  tabindex="-1"
+                >
+                  <i class="fas fa-eye"></i>
+                </button>
+              </div>
+              <span class="error-msg"
+                ><i class="fas fa-circle-exclamation"></i> Password is
+                required</span
+              >
+            </div>
+
+            <!-- Remember -->
+            <div class="remember-row">
+              <input type="checkbox" id="remember" />
+              <label for="remember">Remember me for 30 days</label>
+            </div>
+
+            <!-- Submit -->
+            <button class="btn-submit" id="submitBtn" onclick="handleLogin()">
+              <div class="spinner"></div>
+              <i class="fas fa-right-to-bracket btn-icon"></i>
+              <span>Sign In</span>
+            </button>
+
+            <p
+              style="
+                text-align: center;
+                margin-top: 20px;
+                font-size: 0.78rem;
+                color: var(--text-muted);
+              "
+            >
+              New to GameStore?
+              <a
+                href="signup.html"
+                style="
+                  color: var(--neon-purple);
+                  text-decoration: none;
+                  font-weight: 500;
+                "
+                >Create a free account</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-copy">© 2025 GameStore. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="#">Privacy</a><a href="#">Terms</a><a href="#">Help</a>
+      </div>
+    </footer>
+
+    <script src="/assets/js/login.js"></script>
+  </body>
+</html>

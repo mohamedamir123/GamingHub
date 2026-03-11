@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up — GamingHub</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/assets/css/signup.css" />
+  </head>
+  <body>
+    <div class="bg-layer">
+      <div class="bg-grid"></div>
+      <div class="bg-orb bg-orb-1"></div>
+      <div class="bg-orb bg-orb-2"></div>
+      <div class="bg-orb bg-orb-3"></div>
+    </div>
+
+    <nav class="navbar">
+      <div class="navbar-inner">
+        <a class="logo" href="/index.html">GAMING<span>HUB</span></a>
+        <a class="nav-back" href="/index.html"
+          ><i class="fas fa-arrow-left"></i> Back to Store</a
+        >
+      </div>
+    </nav>
+
+    <main>
+      <div class="auth-wrapper">
+        <!-- FORM SIDE -->
+        <div class="auth-form-side">
+          <!-- Success -->
+          <div class="success-overlay" id="successOverlay">
+            <div class="success-avatar" id="successAvatar">🎮</div>
+            <div class="success-badge">
+              <i class="fas fa-check"></i> Account Created
+            </div>
+            <div class="success-title">Welcome to GamingHub!</div>
+            <p class="success-msg">
+              Your account is ready. Time to build<br />your ultimate game
+              library.
+            </p>
+            <a class="btn-store" href="/index.html">Start Gaming →</a>
+          </div>
+
+          <!-- Form -->
+          <div id="formContent">
+            <div class="form-header">
+              <h1 class="form-title">Create Account</h1>
+              <p class="form-subtitle">
+                Already have one? <a href="login.html">Sign in →</a>
+              </p>
+            </div>
+
+            <!-- OAuth -->
+            <div class="oauth-row">
+              <button class="oauth-btn">
+                <i class="fab fa-google google-i"></i> Google
+              </button>
+              <button class="oauth-btn">
+                <i class="fab fa-steam steam-i"></i> Steam
+              </button>
+            </div>
+            <div class="divider">or create with email</div>
+
+            <!-- Avatar picker -->
+            <div class="field">
+              <label>Choose Your Avatar</label>
+              <div class="avatar-row" id="avatarRow">
+                <div
+                  class="avatar-opt selected"
+                  data-val="🎮"
+                  onclick="pickAvatar(this)"
+                >
+                  🎮
+                </div>
+                <div
+                  class="avatar-opt"
+                  data-val="🕹️"
+                  onclick="pickAvatar(this)"
+                >
+                  🕹️
+                </div>
+                <div
+                  class="avatar-opt"
+                  data-val="⚔️"
+                  onclick="pickAvatar(this)"
+                >
+                  ⚔️
+                </div>
+                <div
+                  class="avatar-opt"
+                  data-val="🚀"
+                  onclick="pickAvatar(this)"
+                >
+                  🚀
+                </div>
+                <div
+                  class="avatar-opt"
+                  data-val="🧙"
+                  onclick="pickAvatar(this)"
+                >
+                  🧙
+                </div>
+                <div
+                  class="avatar-opt"
+                  data-val="👾"
+                  onclick="pickAvatar(this)"
+                >
+                  👾
+                </div>
+                <div
+                  class="avatar-opt"
+                  data-val="🦊"
+                  onclick="pickAvatar(this)"
+                >
+                  🦊
+                </div>
+                <div
+                  class="avatar-opt"
+                  data-val="🐉"
+                  onclick="pickAvatar(this)"
+                >
+                  🐉
+                </div>
+              </div>
+            </div>
+
+            <!-- Name row -->
+            <div class="form-row">
+              <div class="field" id="field-fname">
+                <label>First Name <span class="req">*</span></label>
+                <div class="field-icon-wrap">
+                  <input
+                    type="text"
+                    id="fname"
+                    placeholder="Enter Your First Name"
+                    autocomplete="given-name"
+                  />
+                  <i class="fas fa-user f-icon"></i>
+                </div>
+                <span class="error-msg"
+                  ><i class="fas fa-circle-exclamation"></i> Required</span
+                >
+              </div>
+              <div class="field" id="field-lname">
+                <label>Last Name <span class="req">*</span></label>
+                <div class="field-icon-wrap">
+                  <input
+                    type="text"
+                    id="lname"
+                    placeholder="Enter Your Last Name"
+                    autocomplete="family-name"
+                  />
+                  <i class="fas fa-user f-icon"></i>
+                </div>
+                <span class="error-msg"
+                  ><i class="fas fa-circle-exclamation"></i> Required</span
+                >
+              </div>
+            </div>
+
+            <!-- Username -->
+            <div class="field" id="field-username">
+              <label>Username <span class="req">*</span></label>
+              <div class="field-icon-wrap">
+                <input
+                  type="text"
+                  id="username"
+                  placeholder="CyberGamer99"
+                  autocomplete="username"
+                  oninput="checkUsername(this)"
+                />
+                <i class="fas fa-at f-icon"></i>
+              </div>
+              <span class="error-msg"
+                ><i class="fas fa-circle-exclamation"></i> Min 3 chars,
+                letters/numbers only</span
+              >
+            </div>
+
+            <!-- Email -->
+            <div class="field" id="field-email">
+              <label>Email Address <span class="req">*</span></label>
+              <div class="field-icon-wrap">
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="user@example.com"
+                  autocomplete="email"
+                />
+                <i class="fas fa-envelope f-icon"></i>
+              </div>
+              <span class="error-msg"
+                ><i class="fas fa-circle-exclamation"></i> Enter a valid
+                email</span
+              >
+            </div>
+
+            <!-- Date of birth -->
+            <div class="field" id="field-dob">
+              <label>Date of Birth <span class="req">*</span></label>
+              <div class="field-icon-wrap">
+                <input type="date" id="dob" autocomplete="bday" />
+                <i class="fas fa-calendar f-icon"></i>
+              </div>
+              <span class="error-msg"
+                ><i class="fas fa-circle-exclamation"></i> Must be 13 or
+                older</span
+              >
+            </div>
+
+            <!-- Password -->
+            <div class="field" id="field-password">
+              <label>Password <span class="req">*</span></label>
+              <div class="field-icon-wrap">
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="Min 8 characters"
+                  autocomplete="new-password"
+                  oninput="updateStrength(this.value)"
+                />
+                <i class="fas fa-lock f-icon"></i>
+                <button
+                  class="toggle-pw"
+                  type="button"
+                  onclick="togglePw('password', this)"
+                  tabindex="-1"
+                >
+                  <i class="fas fa-eye"></i>
+                </button>
+              </div>
+              <div class="pw-strength-bar">
+                <div class="pw-seg" id="seg1"></div>
+                <div class="pw-seg" id="seg2"></div>
+                <div class="pw-seg" id="seg3"></div>
+                <div class="pw-seg" id="seg4"></div>
+              </div>
+              <div class="pw-label" id="pwLabel">Enter a password</div>
+              <span class="error-msg"
+                ><i class="fas fa-circle-exclamation"></i> Min 8 characters
+                required</span
+              >
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="field" id="field-confirm">
+              <label>Confirm Password <span class="req">*</span></label>
+              <div class="field-icon-wrap">
+                <input
+                  type="password"
+                  id="confirm"
+                  placeholder="Repeat your password"
+                  autocomplete="new-password"
+                />
+                <i class="fas fa-lock f-icon"></i>
+                <button
+                  class="toggle-pw"
+                  type="button"
+                  onclick="togglePw('confirm', this)"
+                  tabindex="-1"
+                >
+                  <i class="fas fa-eye"></i>
+                </button>
+              </div>
+              <span class="error-msg"
+                ><i class="fas fa-circle-exclamation"></i> Passwords do not
+                match</span
+              >
+            </div>
+
+            <!-- Checkboxes -->
+            <div class="check-field">
+              <input type="checkbox" id="newsletter" />
+              <label for="newsletter"
+                >Send me deals, new releases, and gaming news.</label
+              >
+            </div>
+            <div class="check-field">
+              <input type="checkbox" id="terms" />
+              <label for="terms"
+                >I agree to the <a href="#">Terms of Service</a> and
+                <a href="#">Privacy Policy</a>.
+                <span class="req" style="color: var(--neon-pink)"
+                  >*</span
+                ></label
+              >
+            </div>
+            <span class="error-msg" id="terms-error"
+              ><i class="fas fa-circle-exclamation"></i> You must accept the
+              terms</span
+            >
+
+            <!-- Submit -->
+            <button class="btn-submit" id="submitBtn" onclick="handleSignup()">
+              <div class="spinner"></div>
+              <i class="fas fa-rocket btn-icon"></i>
+              <span>Create Account</span>
+            </button>
+
+            <p
+              style="
+                text-align: center;
+                margin-top: 16px;
+                font-size: 0.78rem;
+                color: var(--text-muted);
+              "
+            >
+              Already a member?
+              <a
+                href="login.html"
+                style="
+                  color: var(--neon-blue);
+                  text-decoration: none;
+                  font-weight: 500;
+                "
+                >Sign in</a
+              >
+            </p>
+          </div>
+        </div>
+        <!-- /form-side -->
+
+        <!-- VISUAL SIDE -->
+        <div class="auth-visual">
+          <div class="visual-grid"></div>
+          <div class="visual-glow-1"></div>
+          <div class="visual-glow-2"></div>
+
+          <div class="visual-top">
+            <div class="visual-logo">GAMESTORE</div>
+          </div>
+
+          <div class="visual-mid">
+            <div class="visual-icon">🚀</div>
+            <h2 class="visual-title">
+              Level Up<br />
+              <span class="hl">Your Game</span>
+            </h2>
+            <p class="visual-desc">
+              Join 500,000+ gamers. Get access to exclusive deals, instant
+              downloads, and your personal game library.
+            </p>
+
+            <div class="step-track">
+              <div class="step active" id="step1">
+                <div class="step-dot">1</div>
+                <span>Create your account</span>
+              </div>
+              <div class="step" id="step2">
+                <div class="step-dot">2</div>
+                <span>Verify your email</span>
+              </div>
+              <div class="step" id="step3">
+                <div class="step-dot">3</div>
+                <span>Start gaming instantly</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="visual-bottom">
+            <div class="trust-row">
+              <div class="trust-item">
+                <span class="trust-icon">🔒</span> SSL-encrypted & secure
+              </div>
+              <div class="trust-item">
+                <span class="trust-icon">🚫</span> No spam, ever
+              </div>
+              <div class="trust-item">
+                <span class="trust-icon">⚡</span> Instant digital delivery
+              </div>
+              <div class="trust-item">
+                <span class="trust-icon">💳</span> 14-day hassle-free returns
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-copy">© 2025 GameStore. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="#">Privacy</a><a href="#">Terms</a><a href="#">Help</a>
+      </div>
+    </footer>
+    <script src="/assets/js/signup.js"></script>
+  </body>
+</html>
